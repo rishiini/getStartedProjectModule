@@ -1,2 +1,4 @@
-package repository;public class ProductRepo {
+package repository;
+
+public class ProductRepo {
 }

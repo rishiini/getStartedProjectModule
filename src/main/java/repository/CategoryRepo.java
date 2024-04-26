@@ -1,2 +1,4 @@
-package repository;public class CategoryRepo {
+package repository;
+
+public class CategoryRepo {
 }
