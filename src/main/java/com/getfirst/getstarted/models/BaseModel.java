@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Getter
 @Setter
-public class BaseModel {
+public class BaseModel{
     private Long id;
     private Date createdAt;
     private Date lastUpdated;
