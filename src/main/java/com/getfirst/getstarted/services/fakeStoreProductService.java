@@ -2,17 +2,19 @@ package com.getfirst.getstarted.services;
 
 import com.getfirst.getstarted.dtos.FakeStoreCategoryDto;
 import com.getfirst.getstarted.dtos.FakeStoreProductDto;
+import com.getfirst.getstarted.dtos.PatchORPutProductDto;
 import com.getfirst.getstarted.models.Category;
 import com.getfirst.getstarted.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
 
-@Service
+@Service("fakeStoreProductService")
 public class fakeStoreProductService implements ProductService{
 
 
@@ -96,6 +98,22 @@ public class fakeStoreProductService implements ProductService{
         }
         return prodCategory;
     }
+
+    @Override
+    public Product patchAProduct(Long id, String title, String description, String category, double price,
+                                 String image) {
+        PatchORPutProductDto changeMade = new PatchORPutProductDto();
+        changeMade.setTitle(title);
+        changeMade.setDescription(description);
+        changeMade.setCategory(category);
+        changeMade.setPrice(price);
+        changeMade.setImage(image);
+
+
+        PatchORPutProductDto patchORPutProductDto = restTemplate.postForObject
+                ("https://fakestoreapi.com/products/", changeMade, PatchORPutProductDto.class);
+        return  patchORPutProductDto.toProduct();
+    };
 
 
 }

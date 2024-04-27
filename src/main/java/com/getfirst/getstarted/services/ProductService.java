@@ -1,5 +1,6 @@
 package com.getfirst.getstarted.services;
 
+import com.getfirst.getstarted.dtos.FakeStoreProductDto;
 import com.getfirst.getstarted.models.Category;
 import com.getfirst.getstarted.models.Product;
 import lombok.AllArgsConstructor;
@@ -25,6 +26,6 @@ public interface ProductService {
 
     // This will get all the category name
     List<Category> getAllCategory();
-
+    Product patchAProduct(Long id, String title, String description, String category, double price, String image);
 
 }
