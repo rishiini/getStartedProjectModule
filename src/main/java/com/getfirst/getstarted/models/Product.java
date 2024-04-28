@@ -1,5 +1,6 @@
 package com.getfirst.getstarted.models;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
@@ -7,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.engine.internal.Cascade;
 
 import java.util.List;
 
@@ -21,7 +23,7 @@ public class Product extends BaseModel{
     private String description;
     private double price;
     private String imageURL;
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.PERSIST})
 //    @ManyToMany
     private Category category;
 
