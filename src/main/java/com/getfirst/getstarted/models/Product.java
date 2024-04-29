@@ -1,5 +1,6 @@
 package com.getfirst.getstarted.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
@@ -25,6 +26,7 @@ public class Product extends BaseModel{
     private String imageURL;
     @ManyToOne(cascade = {CascadeType.PERSIST})
 //    @ManyToMany
+//    @JsonIgnore
     private Category category;
 
 

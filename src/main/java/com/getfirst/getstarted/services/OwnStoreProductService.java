@@ -21,12 +21,13 @@ public class OwnStoreProductService implements ProductService{
 
     @Override
     public Product getSingleProduct(Long productid) {
-        return null;
+        return productRepository.findByIdIs(productid);
+
     }
 
     @Override
     public List<Product> getProducts() {
-        return null;
+        return productRepository.findAll();
     }
 
 
