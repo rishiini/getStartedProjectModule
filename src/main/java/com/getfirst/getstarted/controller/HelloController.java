@@ -18,7 +18,7 @@ public class HelloController{
     private ProductService productService;
     private RestTemplate restTemplate;
 
-    public HelloController(@Qualifier("ownStoreProductService") ProductService productService, RestTemplate restTemplate){
+    public HelloController(@Qualifier("fakeStoreProductService") ProductService productService, RestTemplate restTemplate){
         this.productService = productService;
         this.restTemplate = restTemplate;
     }
